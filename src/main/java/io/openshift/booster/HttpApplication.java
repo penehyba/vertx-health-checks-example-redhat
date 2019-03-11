@@ -32,7 +32,7 @@ public class HttpApplication extends AbstractVerticle {
 
     vertx
       .createHttpServer()
-      .requestHandler(router::accept)
+      .requestHandler(router)
       .listen(
         config().getInteger("http.port", 8080), ar -> {
           online = ar.succeeded();
