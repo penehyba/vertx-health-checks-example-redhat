@@ -9,12 +9,12 @@ fi
 source .openshift/openshift.sh
 
 if [ -z "$1" ]; then
-  ORG="openshift-vertx-boosters"
+  ORG="openshift-vertx-examples"
 else
   ORG=$1
 fi
 
-REPO="https://github.com/$ORG/vertx-health-checks-booster-redhat"
+REPO="https://github.com/$ORG/vertx-health-checks-example-redhat"
 echo -e "\n${YELLOW}Using source repository: $REPO ...\n${NC}"
 
 # cleanup
@@ -40,7 +40,7 @@ oc delete template --all
 oc apply -f .openshift/application.yaml
 
 # Create the application
-oc new-app --template=vertx-health-check-booster -p SOURCE_REPOSITORY_URL="$REPO"
+oc new-app --template=vertx-health-check-example -p SOURCE_REPOSITORY_URL="$REPO"
 
 # wait for pod to be ready
 waitForPodState "health-check-vertx" "Running"
