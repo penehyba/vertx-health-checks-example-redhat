@@ -158,6 +158,16 @@
               </execution>
             </executions>
             <configuration>
+              <enricher>
+                <excludes>
+                  <exclude>jkube-maven-scm</exclude>
+                </excludes>
+                <config>
+                  <jkube-healthcheck-vertx>
+                    <path>/health</path>
+                  </jkube-healthcheck-vertx>
+                </config>
+              </enricher>
               <resources>
                 <labels>
                   <all>
